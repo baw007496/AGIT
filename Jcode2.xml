@@ -1,0 +1,309 @@
+ <!--  edited with XMLSpy v2013 rel. 2 (http://www.altova.com) by GS (Centurylink) 
+ --> 
+ <tns:UpdateCircuitRequest xmlns:tns="http://www.ICLNBI.com/ICLNBI_V2.00.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ICLNBI.com/ICLNBI_V2.00.xsd file:///C:/ICL/SID%20&%20DA/WIP/Common%20XSD/ICL_V2.18.xsd">
+ <MessageElements>
+ <MessageAddressing>
+ <from>DSP</from> 
+ <to>ICL</to> 
+ <replyTo>DSP</replyTo> 
+ <messageID>DSP1381851999180</messageID> 
+ <action>UpdateCircuit</action> 
+ <timestamp>Tue Oct 15 10:46:39 CDT 2013</timestamp> 
+ <transactionID>1381851999180</transactionID> 
+ <serviceName>UpdateCircuit</serviceName> 
+ <serviceVersion>3.0</serviceVersion> 
+ <userId>DSPWFPP</userId> 
+ <password>DSPWFPP</password> 
+ </MessageAddressing>
+ </MessageElements>
+ <P2PCircuit xsi:type="icl:UNICircuit" xmlns:icl="http://www.ICLNBI.com/ICLNBI_V2.00.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <commonName>25/KRGS/000069/UNI_013454</commonName> 
+ <objectID>1148</objectID> 
+ <sourceSystem>ARM</sourceSystem> 
+ <aliasName>75.KQGS.644040..CTRL</aliasName> 
+ <aliasName2>SPRINT GMG/Customer assigned name</aliasName2> 
+ <functionalStatus>Monitored</functionalStatus> 
+ <MCO>WPKFLETHEQ</MCO> 
+ <ResourceType>UNI</ResourceType> 
+ <ResourceDescribedBy>
+ <CharacteristicName>MCO</CharacteristicName> 
+ <CharacteristicValue>WPKFLETHEQ</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>IsDiverse</CharacteristicName> 
+ <CharacteristicValue>No</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>HPCIndicator</CharacteristicName> 
+ <CharacteristicValue>No</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <!-- Added as part of R6 : NIC : AUC263846
+ --> 
+ <ResourceDescribedBy>
+ <CharacteristicName>Jurisdiction</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>FrameFormat</CharacteristicName> 
+ <CharacteristicValue>ff02</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>FrameSize</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>RateLimitType</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>isPMFlag</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>MonitoringType</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>EWET</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>Layer2ControlProtocolBridgeBlock</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>Layer2ControlProtocolGARPBlock</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>Layer2ControlProtocolAllLANsBMG</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <!-- Added ExceptionHandling Text as part of R6 : NIC : AUC249778
+ --> 
+ <ResourceDescribedBy>
+ <CharacteristicName>ExceptionHandlingText</CharacteristicName> 
+ <CharacteristicValue>Exception Information_0007</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <OwnsResourceDetails>
+ <Customer>
+ <commonName>UTC</commonName> 
+ <description>SPRINT COMMUNICATIONS COMPANY LP.</description> 
+ <objectID>3292</objectID> 
+ <sourceSystem>ARM</sourceSystem> 
+ <CustomerPosseses>
+ <ID /> 
+ <name /> 
+ <IDType>BAN</IDType> 
+ </CustomerPosseses>
+ </Customer>
+ <CustomerAgent>
+ <commonName>SPRINT COMMUNICATIONS COMPANY LP.</commonName> 
+ <RootEntityDescribedBy>
+ <characteristicName>FullName</characteristicName> 
+ <characteristicValue>SPRINT COMMUNICATIONS COMPANY LP.</characteristicValue> 
+ </RootEntityDescribedBy>
+ </CustomerAgent>
+ </OwnsResourceDetails>
+ <lrStatus>In Service</lrStatus> 
+ <bandwidth /> 
+ <ZEndTps>
+ <LogicalPhysicalResource>
+ <PhysicalDevice>
+ <commonName>LSVMNVVTH05-S2T.3592M</commonName> 
+ <!--  Among 3 placeholders, at a time only one port will be present 
+ --> 
+ <ConsistsOfShelf>
+ <ConsistsOfSlot>
+ <HasCard>
+ <!--  First Place Holder : Port following hierarchy Shelf->Slot->Card->Port
+ --> 
+ <PhysicalPort>
+ <commonName>Gigabit Ethernet.6</commonName> 
+ </PhysicalPort>
+ <!--  Second Place Holder : Port following hierarchy Shelf->Slot->Card-> Card->Port
+ --> 
+ <!-- 
+<CardOnCardDetails>
+										 <Card>
+										  <PhysicalPort>
+										   <commonName/>
+										  </PhysicalPort>
+										 </Card>
+										</CardOnCardDetails>
+
+ --> 
+ </HasCard>
+ </ConsistsOfSlot>
+ </ConsistsOfShelf>
+ <!--  Third Place Holder : Direct Port 
+ --> 
+ <!-- 
+<HasPorts>
+								<commonName>Pluggable.3</commonName>
+							</HasPorts> 
+
+ --> 
+ </PhysicalDevice>
+ </LogicalPhysicalResource>
+ </ZEndTps>
+ <NCCode>KQE-</NCCode> 
+ <NCICode>04LN9.1CT</NCICode> 
+ <SecoundaryNCICode>02CXF.100</SecoundaryNCICode> 
+ <!-- Added QOSBandwidth/P=Set section on Create UNI as part of RRD19 : AUC374607
+ --> 
+ <QoSBandwidth>
+ <!-- "commonName" represents QoSQualifier.Possible Values can be UNI-DSCP, UNI-TOS, UNI-COS
+ --> 
+ <commonName>This represents QoSQualifier.</commonName> 
+ <!-- Possible values Add, Update, Remove
+ --> 
+ <action /> 
+ <!-- Possible Values can be Gold or Silver or Bronze or Real Time or Business Class or Best Effort or P1 or P2 or P3 or P4 or ***
+ --> 
+ <LOSName /> 
+ <!-- Possible Values can beTOS, COS, DSCP
+ --> 
+ <CosID /> 
+ <!-- Possible Values can be TOS = 0-7 or COS =802.1p or DSCP = 0-64 
+ --> 
+ <CosValue /> 
+ <ProfileParameters>
+ <bandwidth /> 
+ <committedInformationRate /> 
+ <committedBurstSize /> 
+ <excessInformationRate /> 
+ <excessBurstSize /> 
+ <couplingFlag /> 
+ <colorMode /> 
+ <CoS /> 
+ </ProfileParameters>
+ </QoSBandwidth>
+ <EVCCircuit>
+ <commonName>75/VLGS/644041//CTRL</commonName> 
+ <objectID>2165</objectID> 
+ <Remarks>
+ <type>Notes</type> 
+ <text /> 
+ </Remarks>
+ <functionalStatus>Monitored</functionalStatus> 
+ <MCO>WPKFLETHEQ</MCO> 
+ <ResourceType>EVC</ResourceType> 
+ <ResourceSubType /> 
+ <ResourceDescribedBy>
+ <CharacteristicName>NCCode</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>HPCIndicator</CharacteristicName> 
+ <CharacteristicValue>No</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>HPCExpirationDate</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceRelationship>
+ <TerminationPoint xsi:type="icl:ConnectionTerminationPoint">
+ <commonName>Membership Name</commonName> 
+ <description>VLI Port</description> 
+ <Remarks>
+ <type>Notes</type> 
+ <text /> 
+ </Remarks>
+ <aliasName /> 
+ <aliasName2 /> 
+ <functionalStatus /> 
+ <ResourceDescribedBy>
+ <CharacteristicName>Function</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>NCICode</CharacteristicName> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>Bandwidth</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <!-- Added as part of R6 : NIC : Circuit \ Service Modeling AUC263845
+ --> 
+ <ResourceDescribedBy>
+ <CharacteristicName>SLAAgreementTemplate</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>MileageBetweenEndpoints</CharacteristicName> 
+ </ResourceDescribedBy>
+ <!-- Replaced CEVLAN as part of R6 : NIC : Circuit \ Service Modeling AUC263845
+ --> 
+ <ResourceDescribedBy>
+ <CharacteristicName>CEVLAN</CharacteristicName> 
+ <CharacteristicValue>17</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>SVLAN</CharacteristicName> 
+ <CharacteristicValue>17</CharacteristicValue> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>VLANRequired</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <ResourceDescribedBy>
+ <CharacteristicName>VLANKnown</CharacteristicName> 
+ <CharacteristicValue /> 
+ </ResourceDescribedBy>
+ <CreationDate /> 
+ <ModificationDate /> 
+ <lrStatus /> 
+ <QoSBandwidth>
+ <!-- "commonName" represents QoSQualifier.Possible Values can be UNI-DSCP, UNI-TOS, UNI-COS, UNI-EVC, UNI-EVC-DSCP, UNI-EVC-TOS, UNI-EVC-COS
+ --> 
+ <commonName>This represents QoSQualifier.</commonName> 
+ <!-- Existing attribute action added for AUC260567. Possible values Add, Update, Remove
+ --> 
+ <action /> 
+ <!-- Existing Attribute LOSName added for AUC260567. Possible Values can be Gold or Silver or Bronze or Real Time or Business Class or Best Effort or P1 or P2 or P3 or P4 or ***
+ --> 
+ <LOSName /> 
+ <!-- New Attribute CosID added for AUC260567. Possible Values can beTOS, COS, DSCP
+ --> 
+ <CosID /> 
+ <!-- New Attribute CosValue added for AUC260567. Possible Values can be TOS = 0-7 or COS =802.1p or DSCP = 0-64 
+ --> 
+ <CosValue /> 
+ <!-- Existing attributes added for AUC260567
+ --> 
+ <ProfileParameters>
+ <bandwidth /> 
+ <committedInformationRate /> 
+ <committedBurstSize /> 
+ <excessInformationRate /> 
+ <excessBurstSize /> 
+ <couplingFlag /> 
+ <colorMode /> 
+ <CoS /> 
+ </ProfileParameters>
+ </QoSBandwidth>
+ <!-- Added Maintenance End Point : R6 : NIC : Circuit/Service Modeling AUC263845
+ --> 
+ <MaintenanceEndPoint>
+ <MEGLevel /> 
+ <PrimaryVLANID /> 
+ <Direction /> 
+ <MACAddress /> 
+ <CCIEnabled /> 
+ <CCMLTMPriority /> 
+ <LowestPriorityDefect /> 
+ <FaultAlarmTime /> 
+ <FaultResetTime /> 
+ </MaintenanceEndPoint>
+ </TerminationPoint>
+ </ResourceRelationship>
+ <CreationDate /> 
+ <ModificationDate /> 
+ <lrStatus>In Service</lrStatus> 
+ </EVCCircuit>
+ <DiversityCircuit>
+ <commonName>60/L2XX/425234//CTRL</commonName> 
+ </DiversityCircuit>
+ </P2PCircuit>
+ </tns:UpdateCircuitRequest>
