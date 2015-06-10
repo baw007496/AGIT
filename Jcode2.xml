@@ -1,3 +1,4 @@
+ <!-- Added as testing for GIT.. -->
  <!--  edited with XMLSpy v2013 rel. 2 (http://www.altova.com) by GS (Centurylink) 
  --> 
  <tns:UpdateCircuitRequest xmlns:tns="http://www.ICLNBI.com/ICLNBI_V2.00.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ICLNBI.com/ICLNBI_V2.00.xsd file:///C:/ICL/SID%20&%20DA/WIP/Common%20XSD/ICL_V2.18.xsd">
@@ -80,7 +81,9 @@
  <CharacteristicValue /> 
  </ResourceDescribedBy>
  <!-- Added ExceptionHandling Text as part of R6 : NIC : AUC249778
+ Added more comments instream code
  --> 
+  <!-- Added as testing for GIT.. -->
  <ResourceDescribedBy>
  <CharacteristicName>ExceptionHandlingText</CharacteristicName> 
  <CharacteristicValue>Exception Information_0007</CharacteristicValue> 
