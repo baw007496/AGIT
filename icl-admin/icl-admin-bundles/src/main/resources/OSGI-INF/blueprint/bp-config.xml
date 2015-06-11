@@ -1,0 +1,84 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel="http://camel.apache.org/schema/blueprint"
+	xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+	
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
+						http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+						http://camel.apache.org/schema/blueprint
+						http://camel.apache.org/schema/blueprint/camel-blueprint-2.8.4.xsd
+						http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0
+						http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.0.0.xsd">
+
+	<!-- OSGI blueprint property placeholder -->
+    <cm:property-placeholder id="prop.placeholder" persistent-id="com.centurylink.icl.admin.bundles">
+    	<cm:default-properties>
+    		<cm:property name="xmlconfiguration.location" value="etc/icl/com.centurylink.icl.admin.rules.xml"/>
+    		<cm:property name="serviceName" value="BundleService"/>
+    	</cm:default-properties>
+    </cm:property-placeholder>
+	
+	<bean id="bundleService" class="com.centurylink.icl.admin.bundles.BundleService" init-method="registerIclService" destroy-method="unregisterIclService">
+		<argument ref="bundleServiceOneContext" />
+		<argument ref="blueprintBundleContext" />
+		<argument value="${xmlconfiguration.location}"/>
+		<argument value="${serviceName}"/>
+	</bean>
+	
+	<service id="service" ref="bundleService" interface="com.centurylink.icl.component.IRoutingGroupService">
+		<service-properties>
+			<entry key="name" value="${serviceName}"/>
+		</service-properties>
+	</service>
+	
+	<bean id="bundleServiceRoute" class="com.centurylink.icl.admin.bundles.BundleServiceRoute"/>
+	<bean id="logConfigServiceRoute" class="com.centurylink.icl.admin.logconfig.LogConfigServiceRoute"/>
+
+	<bean id="headersDetail" class="com.centurylink.icl.admin.bundles.HeadersDetail">
+		<argument ref="blueprintBundleContext" />
+	</bean>
+
+	<bean id="bundleList" class="com.centurylink.icl.admin.bundles.BundleList">
+		<argument ref="blueprintBundleContext" />
+        <property name="bundleStateListenerFactories">
+            <list xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+                <ref component-id="blueprintListener" />
+                <ref component-id="springListener" />
+            </list>
+        </property>
+	</bean>
+	
+	<bean id="exportList" class="com.centurylink.icl.admin.bundles.ExportList">
+		<argument ref="blueprintBundleContext" />
+	</bean>
+	
+	<bean id="bundleStateChange" class="com.centurylink.icl.admin.bundles.BundleStateChange">
+		<argument ref="blueprintBundleContext" />
+	</bean>
+	
+	<bean id="configList" class="com.centurylink.icl.admin.bundles.ConfigList">
+		<argument ref="blueprintBundleContext" />
+	</bean>
+	
+	<bean id="setLogLevel" class="com.centurylink.icl.admin.logconfig.SetLogLevel">
+		<argument ref="blueprintBundleContext" />
+	</bean>
+	<bean id="getLogLevel" class="com.centurylink.icl.admin.logconfig.GetLogLevel">
+		<argument ref="blueprintBundleContext" />
+	</bean>
+	
+	<camel:camelContext id="bundleServiceOneContext" trace="false">
+		<camel:routeBuilder ref="bundleServiceRoute"/>
+		<camel:routeBuilder ref="logConfigServiceRoute"/>
+	</camel:camelContext>
+	
+	<reference id="configAdmin" interface="org.osgi.service.cm.ConfigurationAdmin"  />
+    
+    <bean id="blueprintListener" class="com.centurylink.icl.admin.bundles.listener.BlueprintListener" />
+	<service ref="blueprintListener" interface="org.osgi.service.blueprint.container.BlueprintListener" />
+    
+    <bean id="springListener" class="com.centurylink.icl.admin.bundles.listener.SpringStateListenerFactory" init-method="init" destroy-method="destroy">
+        <property name="bundleContext" ref="blueprintBundleContext" />
+    </bean>
+		
+</blueprint>

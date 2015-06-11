@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>bundle</packaging>
+	<artifactId>icl-xref-transformationengine</artifactId>
+	<name>Icl Xref Transformationengine</name>
+
+	<parent>
+		<groupId>com.centurylink.icl</groupId>
+		<artifactId>icl-app</artifactId>
+		<version>1.7-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-iclaction-builder</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-datamodel-iclaction</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-datamodel-cim2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-sid-builder-cim2</artifactId>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-xref-connector</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>xmlunit</groupId>
+			<artifactId>xmlunit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.commons-io</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-service-hub</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-common</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.xmlbeans</artifactId>
+		</dependency>
+
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven.bundle.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package>
+							com.centurylink.icl.xref.db.transformationengine
+						</Export-Package>
+						<Import-Package>
+							org.apache.commons.logging,
+							com.centurylink.icl.component,
+							org.osgi.service.blueprint,
+							org.springframework.context,
+							org.springframework.jdbc.core.namedparam,
+							com.centurylink.icl.iclaction,
+							org.apache.xmlbeans,
+							javax.naming,
+							com.centurylink.icl.builder.iclaction,
+							com.iclnbi.iclnbiV200,
+							com.centurylink.icl.builder.cim2,
+							com.centurylink.icl.builder.util, 
+							com.centurylink.icl.exceptions, 
+							com.centurylink.icl.xref.helper
+						</Import-Package>
+						<DynamicImport-Package />
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

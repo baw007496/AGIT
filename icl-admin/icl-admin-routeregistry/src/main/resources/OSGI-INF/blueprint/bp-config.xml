@@ -1,0 +1,48 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel="http://camel.apache.org/schema/blueprint"
+	xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+	
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
+						http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+						http://camel.apache.org/schema/blueprint
+						http://camel.apache.org/schema/blueprint/camel-blueprint-2.8.4.xsd
+						http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0
+						http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.0.0.xsd">
+
+	<!-- OSGI blueprint property placeholder -->
+    <cm:property-placeholder id="prop.placeholder" persistent-id="com.centurylink.icl.admin.routeregistry">
+    	<cm:default-properties>
+    		<cm:property name="xmlconfiguration.location" value="etc/icl/com.centurylink.icl.admin.rules.xml"/>
+    		<cm:property name="serviceName" value="RouteRegistryService"/>
+    	</cm:default-properties>
+    </cm:property-placeholder>
+	
+	<bean id="routeRegistryService" class="com.centurylink.icl.admin.routeregistry.RouteRegistryService" init-method="registerIclService" destroy-method="unregisterIclService">
+		<argument ref="routeRegistryServiceOneContext" />
+		<argument ref="blueprintBundleContext" />
+		<argument value="${xmlconfiguration.location}"/>
+		<argument value="${serviceName}"/>
+	</bean>
+	
+	<service id="service" ref="routeRegistryService" interface="com.centurylink.icl.component.IRoutingGroupService">
+		<service-properties>
+			<entry key="name" value="${serviceName}"/>
+		</service-properties>
+	</service>
+	
+	<bean id="routeRegistryServiceRoute" class="com.centurylink.icl.admin.routeregistry.RouteRegistryServiceRoute"/>
+
+	<bean id="routeRegistryList" class="com.centurylink.icl.admin.routeregistry.RouteRegistryList" destroy-method="destroy">
+		<argument ref="blueprintBundleContext" />
+	</bean>
+	
+	<bean id="cacheStats" class="com.centurylink.icl.admin.routeregistry.CacheStats">
+		<argument value="etc/icl/ehcache.xml" />
+	</bean>
+		
+	<camel:camelContext id="routeRegistryServiceOneContext" trace="false">
+		<camel:routeBuilder ref="routeRegistryServiceRoute"/>
+	</camel:camelContext>
+
+</blueprint>

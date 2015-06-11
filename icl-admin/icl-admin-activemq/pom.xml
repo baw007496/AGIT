@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>icl-admin-activemq</artifactId>
+	<packaging>bundle</packaging>
+	<name>ICL Admin ActiveMQ</name>
+
+	<parent>
+		<groupId>com.centurylink.icl</groupId>
+		<artifactId>icl-admin</artifactId>
+		<version>1.7.2-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-datamodel-iclaction</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-service-hub</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icl-iclaction-builder</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.xmlbeans</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+		</dependency>
+			
+		<dependency>
+			<groupId>org.ops4j.pax.logging</groupId>
+			<artifactId>pax-logging-api</artifactId>
+		</dependency>
+      
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven.bundle.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package />
+						<Import-Package>org.apache.camel,
+									org.apache.camel.builder,
+									org.apache.camel.model,
+									org.apache.camel.processor.aggregate,
+									org.apache.commons.logging,									
+							org.apache.xmlbeans,
+							com.centurylink.icl.component,
+							com.centurylink.icl.exceptions,
+							com.centurylink.icl.iclaction,
+							com.centurylink.icl.builder.iclaction,
+							com.centurylink.icl.common.util,
+							javax.management,
+							org.apache.activemq.broker.jmx,
+							org.osgi.framework,
+							org.osgi.service.blueprint,
+							org.osgi.service.blueprint.container
+						</Import-Package>
+						<DynamicImport-Package />
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
